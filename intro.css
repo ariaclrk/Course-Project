@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family+Crimson+Pro:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: "Acme", sans-serif;
+}
+/* Background */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('img.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+/* Split left-Welcome */
+.split-left {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    width: 1150px;
+    min-height: 40vh;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;   
+}
+/* Welcome to my Portfolio */
+.welcome {
+    background: transparent;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+}
+
+.welcome-inner {
+    width: 500px;
+    text-align: center;
+}
+
+.welcome-inner h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-shadow: 0 0 25px rgba(255, 255, 244, 0.4);
+}
+
+.welcome-inner p {
+    font-size: 1.2rem;
+    line-height: 1;
+    color: rgba(255, 255, 244, 0.95);
+}
+/* Split right-Login */
+.split-right {
+    width: 420px;
+    background: transparent;
+    border-radius: 10px;
+    padding: 30px 40px; 
+}
+
+.split-right h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.split-right .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 18px 0 10px 0;
+}
+/*Global rule (login + register pages) */
+.input-box {
+    position: relative;        /* ensures icons stay inside inputs */
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: #fff;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+/* Forgot Password? */
+.split-right .remember-forget {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: 10px 0 15px;
+}
+/* NEW remember-me checkbox */
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+}
+/* Hide default checkbox */
+.remember-me input {
+    appearance: none;
+    opacity: 0;
+    position: absolute;
+}
+
+.custom-check {
+    width: 16px;
+    height: 16px;
+    border: 2px solid white;
+    border-radius: 4px;
+    position: relative;
+    transition: 0.25s;
+}
+
+.custom-check::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 2px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transform: scale(0);
+    transition: 0.25s;
+}
+
+.remember-me input:checked + .custom-check {
+    background: rgba(255,255,255,0.3);
+    box-shadow: 0 0 6px rgba(255,255,255,0.7);
+}
+
+.remember-me input:checked + .custom-check::after {
+    transform: scale(1);
+}
+/* forget */
+.remember-forget a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.remember-forget a:hover {
+    text-decoration: underline;
+}
+/* Login Button */
+.split-right .btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;    
+}
+/* Register account */
+.split-right .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+
+.register-link p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link p a:hover {
+    text-decoration: underline;
+}
+/* Register.html body page */
+body.register {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background: url('img.jpg') no-repeat center/cover;
+}
+/* Register container */
+.container {
+    width: 420px;                 
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.2);
+    border-radius: 10px;
+    padding: 30px 40px;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.container h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+/* input for registration page */
+.user, .password, 
+.confirm-password { 
+    margin: 20px 0; 
+}
+
+.user label, 
+.password label, 
+.confirm-password label {
+    display: block;
+    font-size: 14.5px;
+    margin-bottom: 8px;
+    color: rgba(255,255,255,.9);
+}
+
+.user input,
+.password input,
+.confirm-password input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.2);
+    border-radius: 40px;
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 20px;
+}
+
+.user input::placeholder,
+.password input::placeholder,
+.confirm-password input::placeholder { 
+    color: #fff; 
+}
+/* Register button */
+button.register {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    margin-top: 10px;
+}
+
+.container .helper {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14.5px;
+    color: #fff;
+}
+
+.container .helper a { 
+    color: #fff;
+    font-weight: 600; 
+    text-decoration: none; 
+}
+
+.container .helper a:hover { 
+    text-decoration: underline; 
+}
+/* Already have an acc? */
+.login-link {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.login-link a {
+    color: #ffffff;
+    font-weight: 600;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+/* Login error message under password */
+.error-message {
+    color: #ff4d4f;
+    font-size: 14px;
+    text-decoration: underline;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    text-align: center;
+}

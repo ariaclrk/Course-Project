@@ -1,0 +1,83 @@
+<!DOCTYPE html> <!-- welcome html document-->
+<html lang="en">
+<!--Encoding for text-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome | IS-4543-ON1</title>
+  <link rel="stylesheet" href="home.css"> <!--Linking css-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" 
+        rel="stylesheet"> 
+</head>
+
+<body>
+  <!--Main container for home and header-->
+  <div class="container">
+    <header>
+      <a href="login.html" class="logo">Portfolio.</a>
+      <!--Navigation menu-->
+      <nav class="navbar">
+        <a href="welcome.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <li class="nav-item contact-hover">
+          <a href="#" class="contact-link">Contact</a>
+          <!--Popup-->
+          <div class="contact-popup">
+              <h3>Contact Info:</h3>
+              <p>Email: ariana_clark@example.com</p>
+          </div>
+        </li>
+      </nav>
+    </header>
+
+    <!--Main welcome area-->
+    <section class="home">
+      <div class="home-detail">
+        <h1>Ariana Clark</h1>
+        <h2>Bachelor of Business Administration & Cyber Security</h2>
+        <p>
+          Customer service representative with two years’ experience preparing presentations, budget reports, and maintaining 
+          schedules. Experience with Microsoft Excel, Word, Python, Linux, Wireshark, and database management. Able to manage 
+          multiple projects in a fast-paced environment. Fosters positive internal relationships between all levels of management 
+          and clientele.
+        </p>
+        <!--Buttons for CV and social media links-->
+        <div class="download-social">
+          <a href="Resume - Ariana Clark.pdf" class="btn">Download CV</a>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/ariana-clark-5395b729b/"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/ariaclrk"><i class="bi bi-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <!--Cybersecurity image-->
+      <div class ="home-img">
+        <div class="img-box">
+          <img src="img2.png" alt="Cybersecurity Graphic">
+        </div>
+      </div>
+    </section>
+  </div>
+<!-- ChatBot Window WIP -->
+<button id="chatbutton" title="Chat"><i class="bi bi-chat-dots"></i></button>
+
+<div class="chatbot">
+  <div class="chat-header">
+    <h2>ChatBot</h2>
+  </div>
+  <ul class="chatbox">
+    <li class="chat incoming">
+      <p>Hello 👋! How can I assist you today?</p>
+  </ul>
+<!-- Message bubble -->
+  <div class="chat-input">
+    <textarea placeholder="Enter a message..."></textarea>
+    <button id="sendBTN">Send</button>
+  </div>
+</div>
+<!-- JS bot -->
+<script src="botscript.js" defer></script>
+</body>
+</html>

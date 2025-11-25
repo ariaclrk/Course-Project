@@ -1,0 +1,103 @@
+<!DOCTYPE html> <!-- Login html document-->
+<html lang="en">
+<!--Encoding for text-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | IS-4543-ON1</title>
+  <link rel="stylesheet" href="intro.css"> <!--Linking css-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" 
+        rel="stylesheet"> 
+</head>
+
+<body>
+  <!--Left side of the screen-->
+  <div class="split-left">
+    <aside class="welcome">
+      <div class="welcome-inner"> <!--Webpage information-->
+        <h1>Welcome to my Portfolio</h1>
+        <p>
+        This website is for my IS-4543-ON1 Course Project. It requires user registration 
+        and login. Once the website is accessed, you will be on
+        the homepage and welcomed by a chatbot that will help navigate you. 
+        </p>
+      <div>
+    <!--Right side of the screen-->
+    </aside>
+      <div class="split-right">
+        <form action=""> <!--Login Form-->
+          <h1>Login</h1> 
+          <!--Username setup-->
+          <div class="input-box">
+            <input type="text" placeholder="Username" required>
+            <i class="bi bi-person-fill"></i> <!--Person Icon-->
+          </div>
+          <!--Password setup-->
+          <div class="input-box">
+            <input type="Password" placeholder="Password" required>
+            <i class="bi bi-lock-fill"></i> <!--Lock Icon-->
+          </div>
+          <!-- Error msg (NEW) -->
+          <div id="login-error" class="error-message"></div>
+          <!--Remember/Forgot (UPDATED)-->
+          <div class="remember-forget">
+            <label class="remember-me">
+            <input type="checkbox" id="rememberMe">
+            <span class="custom-check"></span>
+            Remember me
+            </label>
+            <a href="#">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn">Login</button>
+          <!--Register Link-->
+          <div class="register-link">
+            <p>Don't have an account? <a href="register.html">Register</a></p>
+          </div>
+        </form>
+      </div> <!--Closes RIGHT split-->
+    </aside>
+  </div> <!--Closes LEFT split-->
+
+  <!--JS INFO-->
+  <script>
+  const loginButton = document.querySelector('.btn');
+  const usernameInput = document.querySelector('input[type="text"]');
+  const passwordInput = document.querySelector('input[type="password"]');
+  const errorBox = document.getElementById("login-error"); // login error
+
+  loginButton.addEventListener('click', (event) => {
+    event.preventDefault(); // stops form from refreshing page
+
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    const savedUsername = localStorage.getItem('username');
+    const savedPassword = localStorage.getItem('password');
+
+    // NEW error msg
+    errorBox.textContent = "";
+    usernameInput.classList.remove("input-error");
+    passwordInput.classList.remove("input-error");
+
+    // Empty fields
+    if (!username || !password) {
+      errorBox.textContent = "Please enter both username and password.";
+      if (!username) usernameInput.classList.add("input-error");
+      if (!password) passwordInput.classList.add("input-error");
+      return;
+  }
+    // Incorrect login
+    if (username !== savedUsername || password !== savedPassword) {
+      errorBox.textContent = "The username or password you entered is incorrect.";
+      usernameInput.classList.add("input-error");
+      passwordInput.classList.add("input-error");
+      return;
+  }
+    // Success
+    window.location.href = "welcome.html";
+});
+</script>
+</body>   
+</html>

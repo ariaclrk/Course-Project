@@ -1,0 +1,221 @@
+<!DOCTYPE html> <!-- projects html document-->
+<html lang="en">
+<!--Encoding for text-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | IS-4543-ON1</title>
+  <link rel="stylesheet" href="projects.css"> <!--Linking css-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" 
+        rel="stylesheet"> 
+</head>
+
+<body>
+  <div class="container">
+    <!-- nav bar -->
+    <header>
+      <a href="login.html" class="logo">Portfolio.</a>
+      <nav class="navbar">
+        <a href="welcome.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html" class="active">Projects</a>
+
+        <div class="nav-item contact-hover">
+          <a href="#" class="contact-link">Contact</a>
+          <div class="contact-popup">
+            <h3>Contact Info:</h3>
+            <p>Email: ariana_clark@example.com</p>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- header -->
+    <h2 class="projects-title">Projects</h2>
+
+    <!-- Projects Slider -->
+    <div class="projects-slider">
+
+      <!-- Left Arrow -->
+      <button class="slider-btn prev" aria-label="Previous projects">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+
+      <div class="slider-container">
+        <div class="slider-window">
+          <ul class="card-list">
+
+            <!-- Card 1 -->
+            <li class="card-item">
+              <a href="#" class="card-link">
+                <img src="java.png" alt="Java Proj" class="card-image">
+                <span class="badge java">Java GUI Program</span>
+                <h2 class="card-title">
+                  An interactive GUI Java program that can confirm a users salary and personal
+                  information from a set of listed values.
+                </h2>
+                <button class="card-button">
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </a>
+            </li>
+
+            <!-- Card 2 -->
+            <li class="card-item">
+              <a href="#" class="card-link">
+                <img src="python.png" alt="Python Proj" class="card-image">
+                <span class="badge python">Python Program</span>
+                <h2 class="card-title">
+                  An interavtive Python program that asks users for a random integer (1-100)
+                  and checks its divisability agasint a file called randnums.txt.
+                </h2>
+                <button class="card-button">
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </a>
+            </li>
+
+            <!-- Card 3 -->
+            <li class="card-item">
+              <a href="#" class="card-link">
+                <img src="website.png" alt="Website" class="card-image">
+                <span class="badge website">Portfolio Website</span>
+                <h2 class="card-title">
+                  Using HTML, CSS, and JavaScript I built an interactive website the users can
+                  explore that details my skills and experaince.
+                </h2>
+                <button class="card-button">
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </a>
+            </li>
+
+            <!-- Card 4 -->
+            <li class="card-item">
+              <a href="#" class="card-link">
+                <img src="cyber.webp" alt="stand-in" class="card-image">
+                <span class="badge wip">More to come</span>
+                <h2 class="card-title">More projects will be added soon <br><br><br><br></h2>
+                <button class="card-button">
+                  <i class="bi bi-arrow-right"></i>
+                </button>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Arrow -->
+      <button class="slider-btn next" aria-label="Next projects">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+
+    </div>
+
+    <!-- Slider Dots -->
+    <div class="slider-dots">
+      <button class="dot active"></button>
+      <button class="dot"></button>
+    </div>
+
+    <!-- Chatbot Button -->
+    <button id="chatbutton" title="Chat">
+      <i class="bi bi-chat-dots"></i>
+    </button>
+
+    <!-- Chatbot Window -->
+    <div class="chatbot">
+      <div class="chat-header">
+        <h2>ChatBot</h2>
+      </div>
+
+      <ul class="chatbox">
+        <li class="chat incoming">
+          <p>Hello 👋! How can I assist you today?</p>
+        </li>
+      </ul>
+
+      <div class="chat-input">
+        <textarea placeholder="Enter a message..."></textarea>
+        <button id="sendBTN">Send</button>
+      </div>
+    </div>
+
+    <!-- Chatbot Script -->
+    <script src="botscript.js" defer></script>
+
+  </div>
+
+<!-- JS for slider -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const track   = document.querySelector(".card-list");
+  const items   = Array.from(document.querySelectorAll(".card-item"));
+  const prevBtn = document.querySelector(".slider-btn.prev");
+  const nextBtn = document.querySelector(".slider-btn.next");
+  const dots    = Array.from(document.querySelectorAll(".slider-dots .dot"));
+
+  if (!track || !items.length || !prevBtn || !nextBtn) return;
+
+  let currentIndex = 0;
+
+  function cardsPerView() {
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 900) return 2;
+    return 3; // desktop
+  }
+
+  function getMaxIndex() {
+    return Math.max(0, items.length - cardsPerView());
+  }
+
+  function updateDots() {
+    const max = getMaxIndex();
+    const totalPages = max + 1; 
+
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle("active", idx === currentIndex);
+    });
+  }
+
+  function goTo(index) {
+    const max = getMaxIndex();
+
+    // wrap around for carousel 
+    if (index < 0) index = max;
+    if (index > max) index = 0;
+
+    currentIndex = index;
+
+    const first = items[0];
+    const style = getComputedStyle(track);
+    const gap   = parseFloat(style.columnGap || style.gap || 0);
+    const itemWidth = first.getBoundingClientRect().width + gap;
+
+    const offset = -(itemWidth * currentIndex);
+    track.style.transform = `translateX(${offset}px)`;
+
+    updateDots();
+  }
+
+  // arrow buttons
+  nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
+  prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
+
+  // dots click
+  dots.forEach((dot, idx) => {
+    dot.addEventListener("click", () => goTo(idx));
+  });
+
+  // keep layout on resize
+  window.addEventListener("resize", () => {
+    goTo(currentIndex);
+  });
+
+  // initial position
+  goTo(0);
+});
+</script>
+</body>
+</html>

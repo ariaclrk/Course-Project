@@ -1,0 +1,126 @@
+<!DOCTYPE html> <!-- about html document-->
+<html lang="en">
+<!--Encoding for text-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | IS-4543-ON1</title>
+  <link rel="stylesheet" href="about.css"> <!--Linking css-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.css" 
+        rel="stylesheet"> 
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <a href="login.html" class="logo">Portfolio.</a>
+      <!--Navigation menu-->
+      <nav class="navbar">
+        <a href="welcome.html">Home</a>
+        <a href="about.html" class="active">About</a>  <!-- NEW -->
+        <a href="projects.html">Projects</a>
+        <li class="nav-item contact-hover">
+          <a href="#" class="contact-link">Contact</a>
+          <!--Popup-->
+          <div class="contact-popup">
+              <h3>Contact Info:</h3>
+              <p>Email: ariana_clark@example.com</p>
+          </div>
+        </li>
+      </nav>
+    </header>
+
+  <div class="section">
+    
+    <!-- About Me Card -->
+    <div class="card">
+      <div class="image-section img-abt"></div>
+      <div class="content">
+        <p>
+          Hello, my name is Ariana Clark. I am a senior at The University of Texas at San Antonio. 
+          I am pursuing a Bachelor of Business Administration (B.B.A.) in Cybersecurity that 
+          combines business and technical expertise. I have gained hands-on experience with penetration 
+          testing, digital forensics, and incident response through university labs and real-world 
+          simulations. My coursework has strengthened my understanding 
+          of network security, risk management, and ethical hacking.
+        </p>
+      </div>
+    </div>
+
+    <!-- Skills Card -->
+    <div class="card">
+      <div class="image-section img-skills"></div>
+      <div class="content">
+
+      <div class="skill">
+        <p>Python</p>
+        <div class="bar"><div class="progress" style="width: 80%;"></div></div>
+      </div>
+
+      <div class="skill">
+        <p>Java</p>
+        <div class="bar"><div class="progress" style="width: 50%;"></div></div>
+      </div>
+
+      <div class="skill">
+        <p>SQL</p>
+        <div class="bar"><div class="progress" style="width: 80%;"></div></div>
+      </div>
+
+      <div class="skill">
+        <p>Wireshark</p>
+        <div class="bar"><div class="progress" style="width: 80%;"></div></div>
+      </div>
+
+      <div class="skill">
+        <p>HTML</p>
+        <div class="bar"><div class="progress" style="width: 60%;"></div></div>
+      </div>
+
+      <div class="skill">
+        <p>CSS</p>
+        <div class="bar"><div class="progress" style="width: 60%;"></div></div>
+      </div>
+      </div>
+    </div>
+    <!-- Projects Card -->
+    <div class="card">
+      <div class="image-section img-projects"></div>
+      <div class="content">
+
+        <p>
+          My projects highlight the skills I have developed in cybersecurity, 
+          programming, and web development. I have built interactive web pages, custom
+          Java and Python programs, and tools that integrate HTML, CSS, and Python. Some 
+          of my projects involve university coursework and labs, where I have applied 
+          concepts such as secure design, network analysis, and incident 
+          response that simulate real-world scenarios. 
+        </p>
+        <a href="projects.html" class="button">Read More</a>
+      </div>
+    </div>
+  </div>
+<!-- ChatBot Window -->
+<button id="chatbutton" title="Chat"><i class="bi bi-chat-dots"></i></button>
+
+<div class="chatbot">
+  <div class="chat-header">
+    <h2>ChatBot</h2>
+  </div>
+  <ul class="chatbox">
+    <li class="chat incoming">
+      <p>Hello 👋! How can I assist you today?</p>
+  </ul>
+<!-- Message bubble -->
+  <div class="chat-input">
+    <textarea placeholder="Enter a message..."></textarea>
+    <button id="sendBTN">Send</button>
+  </div>
+</div>
+<!-- JS bot -->
+<script src="botscript.js" defer></script>
+</div>
+</div>
+</body>
+</html>
